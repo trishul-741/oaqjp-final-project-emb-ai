@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emotion Detector</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emotion Detector</h1>
+            <p>Enter text to analyze emotions using Watson NLP mock analysis.</p>
+        </header>
+
+        <form action="/emotionDetector" method="post">
+            <label for="text_input">Your message</label>
+            <textarea id="text_input" name="text_input" rows="6" placeholder="Type a sentence here...">{{ input_text }}</textarea>
+            <button type="submit">Analyze Emotion</button>
+        </form>
+
+        {% if error %}
+            <div class="message error">
+                <strong>Error:</strong> {{ error }}
+            </div>
+        {% endif %}
+
+        {% if result %}
+            <div class="message success">
+                <h2>Detected Emotions</h2>
+                <pre>{{ result | tojson(indent=2) }}</pre>
+            </div>
+        {% endif %}
+
+        <footer>
+            <p>Use the query endpoint <code>/emotionDetector?text=your+message</code> for API testing.</p>
+        </footer>
+    </div>
+</body>
+</html>
