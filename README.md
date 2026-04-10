@@ -1,4 +1,4 @@
-# Emotion Detector – AI-Based Web Application using Watson NLP
+# Final Project
 
 ## Description
 Emotion Detector is a production-ready Python web application that performs emotion analysis on user text using a mocked IBM Watson NLP workflow. The app detects five core emotions: joy, sadness, anger, fear, and disgust, and returns both weighted scores and a dominant emotion.
